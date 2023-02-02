@@ -11,10 +11,11 @@
     // ## Array Cardio Day 2
 
     const people = [
-      { name: 'Wes', year: 1988, language: 'english' },
-      { name: 'Kait', year: 1986, language: 'spanish' },
-      { name: 'Irv', year: 1970,  language: 'german' },
-      { name: 'Lux', year: 2015, language: 'spanish' }
+      { name: 'Wes', year: 1988, language: 'english', work: 'remote' },
+      { name: 'Kait', year: 1986, language: 'spanish', work: 'in-person' },
+      { name: 'Ray', year: 1955,  language: 'german', work: 'retired' },
+      { name: 'Lux', year: 2015, language: 'spanish', work: 'student' },
+      { name: 'Sue', year: 1940,  language: 'german', work: 'retired' }
     ];
 
 
@@ -34,7 +35,7 @@
         return true;
       }
     })
-    console.log({isAdult});
+    // console.log({isAdult});
 
 
     // Array.prototype.every() // is everyone 19 or older?
@@ -52,12 +53,12 @@
       if(comment.id === 823423 )
       return comment;
     })
-    console.log(findId)
+    // console.log(findId)
 
     //Converted to arrow function
     const findIds = comments.find(comment => comment.id === 823423);
 
-    console.log(findIds)
+    // console.log(findIds)
 
     //Does anyone in the group speak Spanish? Using .filter()
     const language = document.querySelector('.language')
@@ -66,8 +67,17 @@
         return true;
       }
     })
-    console.log({speaksSpanish})
+    // console.log({speaksSpanish})
 
+    const retired = people.filter(function(person){
+      if(person.work === 'retired'){
+        return true;
+      }
+    })
+
+    console.log({retired})
+
+    
     // Array.prototype.findIndex() - use to locate index of item in array to delete something
     // Find the comment with this ID
     // delete the comment with the ID of 823423
@@ -76,7 +86,7 @@
         return comment;
       }
     })
-    console.log({index})
+    // console.log({index})
 
     //to delete the comment # 823423
     comments.splice(index, 1)
@@ -86,7 +96,9 @@
       ...comments.slice(0, index),
       ...comments.slice(index + 1 )
     ]
-    console.log({newComments})
+    // console.log({newComments})
+
+
   </script>
 </body>
 </html>
